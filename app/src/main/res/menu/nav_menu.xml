@@ -12,16 +12,19 @@
             android:id="@+id/nav_pantry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:icon="@drawable/icon_pantry"
             android:title="My Pantry" />
         <item
             android:id="@+id/nav_recipes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:icon="@drawable/icon_books"
             android:title="My Recipes" />
         <item
             android:id="@+id/nav_diets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:icon="@drawable/icon_mixer"
             android:title="Diets" />
     </group>
     <item
