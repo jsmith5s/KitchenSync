@@ -7,7 +7,7 @@
     <group
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:checkableBehavior="single" >
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_pantry"
             android:layout_width="wrap_content"
