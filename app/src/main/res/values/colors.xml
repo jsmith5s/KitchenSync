@@ -7,4 +7,11 @@
     <color name="main_lightest">#FFFDE7</color>
     <color name="main_dark">#9D9A7A</color>
     <color name="main_darkest">#4B471C</color>
+    <color name="cabinet">#8C7845</color>
+
+    <color name="Olivine">#8CB369</color>
+    <color name="Flax">#F4E285</color>
+    <color name="Sandy_brown">#F4A259</color>
+    <color name="Viridian">#5B8E7D</color>
+    <color name="Beetroot">#BC4B51</color>
 </resources>

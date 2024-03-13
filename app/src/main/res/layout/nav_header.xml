@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@color/main_lighter"
+    android:background="@color/main_lightest"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
@@ -15,7 +15,7 @@
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_person_24" />
+        app:srcCompat="@drawable/round_account_circle_24" />
 
     <TextView
         android:id="@+id/profile_name"
@@ -25,7 +25,7 @@
         android:layout_marginTop="4dp"
         android:text="Name"
         android:textColor="#2C2A2A"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
