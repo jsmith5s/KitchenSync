@@ -7,9 +7,18 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var trendingList:ArrayList<TrendingFood>
+    private lateinit var homeAdapter:HomeAdapter
 
     private lateinit var drawerLayout: DrawerLayout
 
@@ -35,6 +44,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             navigationView.setCheckedItem(R.id.nav_pantry)
         }
 
+        init()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -56,5 +66,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             drawerLayout.closeDrawer(GravityCompat.START)
         else
             onBackPressedDispatcher.onBackPressed()
+    }
+    //HOME TRENDING FOODS RECYCLYERVIEW
+    private fun init(){
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        val snapHelper: SnapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(recyclerView)
+        trendingList = ArrayList()
+
+        addToTrendingList()
+
+        homeAdapter = HomeAdapter(trendingList)
+        recyclerView.adapter = homeAdapter
+
+    }
+
+    private fun addToTrendingList() {
+        trendingList.add(TrendingFood(R.drawable.foodsample, "Soul Food"))
+        trendingList.add(TrendingFood(R.drawable.foodsample, "Yummy Food"))
+        trendingList.add(TrendingFood(R.drawable.foodsample, "Tasty Food"))
     }
 }
