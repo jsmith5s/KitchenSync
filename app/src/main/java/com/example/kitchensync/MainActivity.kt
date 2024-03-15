@@ -15,11 +15,6 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var trendingList:ArrayList<TrendingFood>
-    private lateinit var homeAdapter:HomeAdapter
-
     private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,23 +64,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     //HOME TRENDING FOODS RECYCLYERVIEW
     private fun init(){
-        recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        val snapHelper: SnapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(recyclerView)
-        trendingList = ArrayList()
+        val trendingList = listOf(
+            TrendingFood(R.drawable.foodsample, "Soul Food"),
+            TrendingFood(R.drawable.foodsample, "Yummy Food"),
+            TrendingFood(R.drawable.foodsample, "Tasty Food")
+        )
 
-        addToTrendingList()
+        val recyclerView = findViewById<RecyclerView>(R.id.trend)
+        //recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        //recyclerView.adapter = HomeAdapter(trendingList)
+        val snap: SnapHelper = LinearSnapHelper()
+        snap.attachToRecyclerView(recyclerView)
 
-        homeAdapter = HomeAdapter(trendingList)
-        recyclerView.adapter = homeAdapter
-
-    }
-
-    private fun addToTrendingList() {
-        trendingList.add(TrendingFood(R.drawable.foodsample, "Soul Food"))
-        trendingList.add(TrendingFood(R.drawable.foodsample, "Yummy Food"))
-        trendingList.add(TrendingFood(R.drawable.foodsample, "Tasty Food"))
     }
 }

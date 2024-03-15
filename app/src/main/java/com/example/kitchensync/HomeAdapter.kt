@@ -15,18 +15,19 @@ class HomeAdapter(private val trendingList : List<TrendingFood>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.home_items, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.home_items, parent, false)
         return FoodViewHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return trendingList.size
     }
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         val food = trendingList[position]
         holder.foodImageView.setImageResource(food.foodImage)
         holder.foodNameTV.text = food.foodName
+    }
+
+    override fun getItemCount(): Int {
+        return trendingList.size
     }
 
 }
