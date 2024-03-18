@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             navigationView.setCheckedItem(R.id.nav_pantry)
         }
 
-        //init()
+        //use this link later for image searching
+        //https://google.com/search?q=space&tbm=isch
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -61,16 +62,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             drawerLayout.closeDrawer(GravityCompat.START)
         else
             onBackPressedDispatcher.onBackPressed()
-    }
-    //HOME TRENDING FOODS RECYCLYERVIEW
-    private fun init(){
-
-
-        val recyclerView = findViewById<RecyclerView>(R.id.trend)
-        //recyclerView.layoutManager = LinearLayoutManager(null, RecyclerView.HORIZONTAL, false)
-        //recyclerView.adapter = HomeAdapter(homeList)
-        val snap: SnapHelper = LinearSnapHelper()
-        snap.attachToRecyclerView(recyclerView)
-
     }
 }
