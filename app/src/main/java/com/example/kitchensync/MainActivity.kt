@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             navigationView.setCheckedItem(R.id.nav_pantry)
         }
 
-        init()
+        //init()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -64,15 +64,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     //HOME TRENDING FOODS RECYCLYERVIEW
     private fun init(){
-        val trendingList = listOf(
-            TrendingFood(R.drawable.foodsample, "Soul Food"),
-            TrendingFood(R.drawable.foodsample, "Yummy Food"),
-            TrendingFood(R.drawable.foodsample, "Tasty Food")
-        )
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.trend)
-        //recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        //recyclerView.adapter = HomeAdapter(trendingList)
+        //recyclerView.layoutManager = LinearLayoutManager(null, RecyclerView.HORIZONTAL, false)
+        //recyclerView.adapter = HomeAdapter(homeList)
         val snap: SnapHelper = LinearSnapHelper()
         snap.attachToRecyclerView(recyclerView)
 
