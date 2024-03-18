@@ -26,9 +26,9 @@ class HomeFragment : Fragment() {
         // getting the trendingList
         val trendingList = listOf(
             TrendingFood(R.drawable.foodsample, "Soul Food"),
-            TrendingFood(R.drawable.foodsample, "Yummy Food"),
+            TrendingFood(R.drawable.pancakes, "Yummy Food"),
             TrendingFood(R.drawable.foodsample, "Tasty Food"),
-            TrendingFood(R.drawable.foodsample, "Okay Food"),
+            TrendingFood(R.drawable.pancakes, "Okay Food"),
             TrendingFood(R.drawable.foodsample, "Best Food"),
             TrendingFood(R.drawable.foodsample, "Hot Food")
         )
@@ -38,6 +38,9 @@ class HomeFragment : Fragment() {
         recyclerView.adapter = HomeAdapter(trendingList)
         val snap: SnapHelper = LinearSnapHelper()
         snap.attachToRecyclerView(recyclerView)
+
+
     }
+
 
 }
