@@ -18,8 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/cabinet"
-            android:textAlignment="center"
+            android:background="@color/main"
             android:theme="?attr/actionBarTheme" />
 
         <FrameLayout
@@ -36,5 +35,20 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu" />
+        app:menu="@menu/nav_menu"
+        android:background="@color/main_lighter"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu ="@menu/bottom_menu"
+        android:background = "@color/main_dark"
+        app:itemIconTint = "@color/main"
+        app:itemTextColor="@color/main"
+        app:itemIconSize="40dp"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"/>
 </androidx.drawerlayout.widget.DrawerLayout>

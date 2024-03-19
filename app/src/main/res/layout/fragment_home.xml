@@ -5,7 +5,7 @@
     android:id="@+id/frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main"
+    android:background="@color/main_lighter"
     tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +29,7 @@
                 android:id="@+id/trend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background = "@color/cabinet"/>
+                android:background="@color/main" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

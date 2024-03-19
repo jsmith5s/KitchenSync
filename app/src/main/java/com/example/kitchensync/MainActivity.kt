@@ -7,16 +7,18 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawerLayout: DrawerLayout
-
+    private lateinit var bottomNavigationView: BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,13 +41,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             navigationView.setCheckedItem(R.id.nav_pantry)
         }
 
-        /*
-        LINKS ILL NEED FOR LATER STUFF
-
-        https://food.ndtv.com/ingredient
-        https://www.scrapingbee.com/blog/web-scraping-kotlin/
-
-         */
+        //use this link later for image searching
+        //https://google.com/search?q=space&tbm=isch
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+    }
+    private fun replaceFragment (fragment : Fragment){
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
