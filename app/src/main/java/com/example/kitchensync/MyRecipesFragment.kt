@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 class MyRecipesFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -17,6 +18,6 @@ class MyRecipesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_my_recipes, container, false)
     }
 }

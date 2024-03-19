@@ -39,8 +39,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             navigationView.setCheckedItem(R.id.nav_pantry)
         }
 
-        //use this link later for image searching
-        //https://google.com/search?q=space&tbm=isch
+        /*
+        LINKS ILL NEED FOR LATER STUFF
+
+        https://food.ndtv.com/ingredient
+        https://www.scrapingbee.com/blog/web-scraping-kotlin/
+
+         */
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
