@@ -27,6 +27,18 @@
             android:layout_height="match_parent">
 
         </FrameLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_dark"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+            app:itemIconSize="40dp"
+            app:itemIconTint="@color/main"
+            app:itemTextColor="@color/main"
+            app:menu="@menu/bottom_menu" />
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -34,21 +46,7 @@
         android:layout_width="275dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/main_lighter"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu"
-        android:background="@color/main_lighter"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id = "@+id/bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu ="@menu/bottom_menu"
-        android:background = "@color/main_dark"
-        app:itemIconTint = "@color/main"
-        app:itemTextColor="@color/main"
-        app:itemIconSize="40dp"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"/>
+        app:menu="@menu/nav_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

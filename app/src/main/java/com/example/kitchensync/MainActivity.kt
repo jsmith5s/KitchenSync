@@ -44,6 +44,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //use this link later for image searching
         //https://google.com/search?q=space&tbm=isch
         bottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.bottom_home -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.bottom_recipes -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.bottom_search -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+        replaceFragment(HomeFragment())
     }
     private fun replaceFragment (fragment : Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
