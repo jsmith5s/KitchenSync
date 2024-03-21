@@ -1,17 +1,17 @@
 package com.example.kitchensync
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
+import com.fleeksoft.ksoup.Ksoup
+import com.fleeksoft.ksoup.network.parseGetRequestBlocking
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.select.Elements
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
@@ -56,14 +56,32 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     true
                 }
                 R.id.bottom_search -> {
-                    replaceFragment(HomeFragment())
+                    replaceFragment(PantryFragment())
                     true
                 }
                 else -> false
             }
         }
         replaceFragment(HomeFragment())
+
+
+
+        //Please note that the com.fleeksoft.ksoup:ksoup-network library is required for Ksoup.parseGetRequest.
+        //var doc: Document = Ksoup.parseGetRequest(url = "https://en.wikipedia.org/") // suspend function
+        // or
+        val doc = Ksoup.parseGetRequestBlocking(url = "https://food.ndtv.com/ingredient/vegetables")
+
+        println("title: ${doc.title()}")
+        val headlines: Elements = doc.select(".IngrLst-Ar_img")
+
+        headlines.forEach { headline: Element ->
+            val headlineTitle = headline.attr("title")
+            //val headlineLink = headline.absUrl("href")
+
+            println(headlineTitle)
+        }
     }
+
     private fun replaceFragment (fragment : Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
     }
