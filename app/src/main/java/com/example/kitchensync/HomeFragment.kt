@@ -25,11 +25,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // getting the trendingList
         val trendingList = listOf(
-            TrendingFood(R.drawable.foodsample, "Soul Food"),
-            TrendingFood(R.drawable.pancakes, "Yummy Food"),
-            TrendingFood(R.drawable.foodsample, "Tasty Food"),
-            TrendingFood(R.drawable.pancakes, "Okay Food"),
-            TrendingFood(R.drawable.foodsample, "Best Food"),
+            TrendingFood(R.drawable.berrytart, "Berry Tart"),
+            TrendingFood(R.drawable.pancakes, "Pancakes"),
+            TrendingFood(R.drawable.crepe, "Crêpes"),
+            TrendingFood(R.drawable.chickensalad, "Chicken Salad"),
+            TrendingFood(R.drawable.orangechicken, "Orange Chicken"),
+            TrendingFood(R.drawable.raspberrymouse, "Raspberry Mousse"),
+            TrendingFood(R.drawable.creme, "Crème Brûlée"),
             TrendingFood(R.drawable.foodsample, "Hot Food")
         )
 

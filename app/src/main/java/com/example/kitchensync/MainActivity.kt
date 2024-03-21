@@ -88,6 +88,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
+            R.id.nav_home -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, HomeFragment()).commit()
             R.id.nav_pantry -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, MyPantryFragment()).commit()
             R.id.nav_recipes -> supportFragmentManager.beginTransaction()
