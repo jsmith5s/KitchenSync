@@ -2,6 +2,7 @@ package com.example.kitchensync
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var bottomNavigationView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     true
                 }
                 R.id.bottom_recipes -> {
-                    replaceFragment(HomeFragment())
+                    replaceFragment(RecipesFragment())
                     true
                 }
                 R.id.bottom_search -> {
@@ -65,10 +67,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         replaceFragment(HomeFragment())
 
 
-
-        //Please note that the com.fleeksoft.ksoup:ksoup-network library is required for Ksoup.parseGetRequest.
-        //var doc: Document = Ksoup.parseGetRequest(url = "https://en.wikipedia.org/") // suspend function
-        // or
         val doc = Ksoup.parseGetRequestBlocking(url = "https://food.ndtv.com/ingredient/vegetables")
 
         println("title: ${doc.title()}")
@@ -88,12 +86,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
+            R.id.nav_home -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, HomeFragment()).commit()
             R.id.nav_pantry -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, MyPantryFragment()).commit()
             R.id.nav_recipes -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, MyRecipesFragment()).commit()
             R.id.nav_diets -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment()).commit()
+                .replace(R.id.fragment_container, DietsFragment()).commit()
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
