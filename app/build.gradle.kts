@@ -51,6 +51,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.fleeksoft.ksoup:ksoup:0.1.2")
     implementation("com.fleeksoft.ksoup:ksoup-network:0.1.2")
+    implementation("com.android.support:cardview-v7:+")
     /*implementation("it.skrape:skrapeit:1.2.2")
     implementation("it.skrape:skrapeit-http-fetcher:1.2.2")*/
 }

@@ -1,11 +1,15 @@
 package com.example.kitchensync
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.SearchEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -15,11 +19,17 @@ import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.network.parseGetRequestBlocking
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.select.Elements
+import java.net.URL
 
 class PantryFragment : Fragment() {
 
+    private lateinit var recyclerPantry: RecyclerView
+    private lateinit var searchView: SearchView
+    private lateinit var ingList : ArrayList<RecipeFoodItem>
+    private lateinit var adapter : IngredientsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -54,12 +64,14 @@ class PantryFragment : Fragment() {
 
             headlines.forEach { headline: Element ->
                 val headlineTitle = headline.attr("title")
-                //val headlineLink = headline.absUrl("href")
+                val headlineLink = headline.absUrl("src")
 
                 println(headlineTitle)
                 fillText += "$headlineTitle\n"
+                ingList.add(RecipeFoodItem(headlineTitle, headlineLink))
             }
             temp.text = fillText
+
         }
 
         /*fun switchURL() {
@@ -81,10 +93,45 @@ class PantryFragment : Fragment() {
             temp.text = fillText
         }*/
 
+        recyclerPantry = view.findViewById(R.id.recyclerPantry)
+        searchView = view.findViewById(R.id.searchView)
+        recyclerPantry.setHasFixedSize(true)
+        recyclerPantry.layoutManager = LinearLayoutManager(view.context)
+        adapter = IngredientsAdapter(ingList)
+        recyclerPantry.adapter = adapter
+
     }
+
+
 
 
 
 }
 
 data class RecipeFoodItem(var foodName: String="", var imageUrl: String="")
+class IngredientsAdapter(private val ingredientsList : ArrayList<RecipeFoodItem>) :
+    RecyclerView.Adapter<IngredientsAdapter.IngViewHolder>(){
+    class IngViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
+        val ingredientView : ImageView = itemView.findViewById(R.id.imageView)
+        val ingredientName : TextView = itemView.findViewById(R.id.textView)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.home_items, parent, false)
+        return IngViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: IngViewHolder, position: Int) {
+        val food = ingredientsList[position]
+        val url = URL(food.imageUrl)
+        val imageData = url.readBytes()
+        holder.ingredientView.setImageBitmap(Bitmap.createBitmap(imageData))
+        holder.ingredientName.text = food.foodName
+    }
+
+    override fun getItemCount(): Int {
+        return ingredientsList.size
+    }
+
+}
