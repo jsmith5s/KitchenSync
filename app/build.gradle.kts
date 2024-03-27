@@ -52,6 +52,8 @@ dependencies {
     implementation("com.fleeksoft.ksoup:ksoup:0.1.2")
     implementation("com.fleeksoft.ksoup:ksoup-network:0.1.2")
     implementation("com.android.support:cardview-v7:+")
+    implementation("org.seleniumhq.selenium:selenium-java:4.18.1")
+    implementation("org.jsoup:jsoup:1.17.2")
     /*implementation("it.skrape:skrapeit:1.2.2")
     implementation("it.skrape:skrapeit-http-fetcher:1.2.2")*/
 }

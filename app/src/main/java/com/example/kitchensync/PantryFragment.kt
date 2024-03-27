@@ -20,6 +20,8 @@ import com.fleeksoft.ksoup.network.parseGetRequestBlocking
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.select.Elements
 import java.net.URL
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.chrome.ChromeDriver
 
 class PantryFragment : Fragment() {
 
@@ -100,6 +102,9 @@ class PantryFragment : Fragment() {
         adapter = IngredientsAdapter(ingList)
         recyclerPantry.adapter = adapter
 
+        var driver : WebDriver = ChromeDriver()
+        //driver.get("https://food.ndtv.com/ingredient/vegetables")
+        //println(driver.title)
     }
 
 
