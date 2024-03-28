@@ -102,7 +102,7 @@ class PantryFragment : Fragment() {
         adapter = IngredientsAdapter(ingList)
         recyclerPantry.adapter = adapter
 
-        var driver : WebDriver = ChromeDriver()
+        //var driver : WebDriver = ChromeDriver()
         //driver.get("https://food.ndtv.com/ingredient/vegetables")
         //println(driver.title)
     }
