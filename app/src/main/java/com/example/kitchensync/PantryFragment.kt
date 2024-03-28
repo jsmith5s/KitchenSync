@@ -19,6 +19,7 @@ import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.network.parseGetRequestBlocking
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.select.Elements
+import com.squareup.picasso.Picasso
 import java.net.URL
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
@@ -129,9 +130,10 @@ class IngredientsAdapter(private val ingredientsList : ArrayList<RecipeFoodItem>
 
     override fun onBindViewHolder(holder: IngViewHolder, position: Int) {
         val food = ingredientsList[position]
-        val url = URL(food.imageUrl)
-        val imageData = url.readBytes()
-        holder.ingredientView.setImageBitmap(Bitmap.createBitmap(imageData))
+        //val url = URL(food.imageUrl)
+        //val imageData = url.readBytes()
+        //holder.ingredientView.setImageBitmap(Bitmap.createBitmap(imageData))
+        Picasso.get().load(food.imageUrl).into(holder.ingredientView)
         holder.ingredientName.text = food.foodName
     }
 
