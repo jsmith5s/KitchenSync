@@ -26,10 +26,8 @@ import org.openqa.selenium.chrome.ChromeDriver
 
 class PantryFragment : Fragment() {
 
-    private lateinit var recyclerPantry: RecyclerView
     private lateinit var searchView: SearchView
     private lateinit var ingList : ArrayList<RecipeFoodItem>
-    private lateinit var adapter : IngredientsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -96,20 +94,17 @@ class PantryFragment : Fragment() {
             temp.text = fillText
         }*/
 
-        recyclerPantry = view.findViewById(R.id.recyclerPantry)
-        searchView = view.findViewById(R.id.searchView)
+        val recyclerPantry:RecyclerView = view.findViewById(R.id.recyclerPantry)
+        //searchView = view.findViewById(R.id.searchView)
         recyclerPantry.setHasFixedSize(true)
-        recyclerPantry.layoutManager = LinearLayoutManager(view.context)
-        adapter = IngredientsAdapter(ingList)
-        recyclerPantry.adapter = adapter
+        recyclerPantry.layoutManager = LinearLayoutManager(context)
+        recyclerPantry.adapter = IngredientsAdapter(ingList)
+        //recyclerPantry.adapter = adapter
 
         //var driver : WebDriver = ChromeDriver()
         //driver.get("https://food.ndtv.com/ingredient/vegetables")
         //println(driver.title)
     }
-
-
-
 
 
 }
@@ -133,7 +128,7 @@ class IngredientsAdapter(private val ingredientsList : ArrayList<RecipeFoodItem>
         //val url = URL(food.imageUrl)
         //val imageData = url.readBytes()
         //holder.ingredientView.setImageBitmap(Bitmap.createBitmap(imageData))
-        Picasso.get().load(food.imageUrl).into(holder.ingredientView)
+        //Picasso.get().load(food.imageUrl).into(holder.ingredientView)
         holder.ingredientName.text = food.foodName
     }
 
